@@ -1,0 +1,129 @@
+import React from "react";
+import "./css/main.css";
+import "./img/flowers.png";
+function App() {
+  return (
+    <div className="container">
+
+      <div className="night"></div>
+
+      <div className="flowers">
+
+        {/* FLOWER 1 */}
+        <div className="flower flower--1">
+          <div className="flower__leafs flower__leafs--1">
+            <div className="flower__leaf flower__leaf--1"></div>
+            <div className="flower__leaf flower__leaf--2"></div>
+            <div className="flower__leaf flower__leaf--3"></div>
+            <div className="flower__leaf flower__leaf--4"></div>
+            <div className="flower__white-circle"></div>
+
+            {[1,2,3,4,5,6,7,8].map(n => (
+              <div key={n} className={`flower__light flower__light--${n}`}></div>
+            ))}
+          </div>
+
+          <div className="flower__line">
+            {[1,2,3,4,5,6].map(n => (
+              <div key={n} className={`flower__line__leaf flower__line__leaf--${n}`}></div>
+            ))}
+          </div>
+        </div>
+
+        {/* FLOWER 2 */}
+        <div className="flower flower--2">
+          <div className="flower__leafs flower__leafs--2">
+            {[1,2,3,4].map(n => (
+              <div key={n} className={`flower__leaf flower__leaf--${n}`}></div>
+            ))}
+            <div className="flower__white-circle"></div>
+
+            {[1,2,3,4,5,6,7,8].map(n => (
+              <div key={n} className={`flower__light flower__light--${n}`}></div>
+            ))}
+          </div>
+
+          <div className="flower__line">
+            {[1,2,3,4].map(n => (
+              <div key={n} className={`flower__line__leaf flower__line__leaf--${n}`}></div>
+            ))}
+          </div>
+        </div>
+
+        {/* FLOWER 3 */}
+        <div className="flower flower--3">
+          <div className="flower__leafs flower__leafs--3">
+            {[1,2,3,4].map(n => (
+              <div key={n} className={`flower__leaf flower__leaf--${n}`}></div>
+            ))}
+            <div className="flower__white-circle"></div>
+            {[1,2,3,4,5,6,7,8].map(n => (
+              <div key={n} className={`flower__light flower__light--${n}`}></div>
+            ))}
+          </div>
+
+          <div className="flower__line">
+            {[1,2,3,4].map(n => (
+              <div key={n} className={`flower__line__leaf flower__line__leaf--${n}`}></div>
+            ))}
+          </div>
+        </div>
+
+        {/* ANIMASYON GRUPLARI */}
+        <div className="grow-ans" style= {{ "--d": "1.2s" }}>
+          <div className="flower__g-long">
+            <div className="flower__g-long__top"></div>
+            <div className="flower__g-long__bottom"></div>
+          </div>
+        </div>
+
+        {/* GRASS (Kopyalanmış bölümler React'e uygun şekilde) */}
+        <div className="growing-grass">
+          <div className="flower__grass flower__grass--1">
+            <div className="flower__grass--top"></div>
+            <div className="flower__grass--bottom"></div>
+            {[1,2,3,4,5,6,7,8].map(n => (
+              <div key={n} className={`flower__grass__leaf flower__grass__leaf--${n}`}></div>
+            ))}
+            <div className="flower__grass__overlay"></div>
+          </div>
+        </div>
+
+        <div className="growing-grass">
+          <div className="flower__grass flower__grass--2">
+            <div className="flower__grass--top"></div>
+            <div className="flower__grass--bottom"></div>
+            {[1,2,3,4,5,6,7,8].map(n => (
+              <div key={n} className={`flower__grass__leaf flower__grass__leaf--${n}`}></div>
+            ))}
+            <div className="flower__grass__overlay"></div>
+          </div>
+        </div>
+
+        {/* Aşağıdaki uzun listeler React formatında sorun çıkarmaz,
+            aynı HTML'i JSX kurallarına uygun şekilde yazıyoruz */}
+
+        {/* GROW GROUPS */}
+        {[2.4, 2.8, 2.8, 3.2].map((delay, i) => (
+          <div key={i} className="grow-ans" style={{ "--d": `${delay}s` }}>
+            <div className={
+              i === 0
+                ? "flower__g-right flower__g-right--1"
+                : i === 1
+                ? "flower__g-right flower__g-right--2"
+                : i === 2
+                ? "flower__g-front"
+                : "flower__g-fr"
+            }>
+              <div className="leaf"></div>
+            </div>
+          </div>
+        ))}
+
+      </div>
+
+    </div>
+  );
+}
+
+export default App;
